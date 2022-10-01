@@ -32,5 +32,5 @@ int primeSumm (int[] arr)
 
  using (StreamWriter writer = new StreamWriter("output.txt", false)) // Используя StreamWriter перезаписываем содержимое файла output.txt
  {  await writer.WriteLineAsync(outStr1);
-    await writer.WriteAsync(outStr2);
+          writer.WriteAsync(outStr2);
  }          
