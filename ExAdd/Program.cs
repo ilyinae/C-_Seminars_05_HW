@@ -22,11 +22,15 @@ int primeSumm (int[] arr)
  var sr = new StreamReader("input.txt");                     // Открываем текстовый файл, используя StreamReader
  string initialString = sr.ReadLine();                       // Считываем входной массив
  int[] array = convertStrArrToInt(initialString.Split(' ')); // Преобразовываем его в int[]
+ int primeSum = primeSumm(array);
  
- Console.WriteLine("Сумма простых чисел массива: [" + string.Join(", ", array)+"] равна " + primeSumm(array));
- Console.WriteLine(IsPrime(primeSumm(array)));
+ string outStr1 = "Сумма простых чисел массива: [" + string.Join(", ", array)+"] равна " + primeSum;
+ string outStr2 = Convert.ToString(IsPrime(primeSum));
+ 
+ Console.WriteLine(outStr1);
+ Console.WriteLine(outStr2);
 
  using (StreamWriter writer = new StreamWriter("output.txt", false)) // Используя StreamWriter перезаписываем содержимое файла output.txt
- {  await writer.WriteLineAsync("Сумма простых чисел массива: [" + string.Join(", ", array)+"] равна " + primeSumm(array));
-          writer.WriteAsync(Convert.ToString(IsPrime(primeSumm(array))));
+ {  await writer.WriteLineAsync(outStr1);
+          writer.WriteAsync(outStr2);
  }          
