@@ -23,7 +23,7 @@ int primeSumm (int[] arr)
  string initialString = sr.ReadLine();                       // Считываем входной массив
  int[] array = convertStrArrToInt(initialString.Split(' ')); // Преобразовываем его в int[]
  int primeSum = primeSumm(array);
- 
+
  string outStr1 = "Сумма простых чисел массива: [" + string.Join(", ", array)+"] равна " + primeSum;
  string outStr2 = Convert.ToString(IsPrime(primeSum));
  
@@ -32,5 +32,5 @@ int primeSumm (int[] arr)
 
  using (StreamWriter writer = new StreamWriter("output.txt", false)) // Используя StreamWriter перезаписываем содержимое файла output.txt
  {  await writer.WriteLineAsync(outStr1);
-          writer.WriteAsync(outStr2);
+    await writer.WriteAsync(outStr2);
  }          
